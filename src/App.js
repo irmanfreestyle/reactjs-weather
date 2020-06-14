@@ -15,6 +15,7 @@ class App extends React.Component {
       daily: [],
       key: 'ff65f62f0ad258a5df3babd66b82f3f5',
     }
+    this.setLocationKeyword = this.setLocationKeyword.bind(this)
   }
 
   async getCurrent(lat, lon) {
@@ -36,9 +37,9 @@ class App extends React.Component {
     });
   }
 
-  async loadByLocation() {
+  async loadByLocation(location) {
     let {key} = this.state
-    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=jakarta&appid=${key}`)
+    await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${key}`)
       .then(async res => {
         let result = res.data;
         console.log(result)
@@ -58,8 +59,12 @@ class App extends React.Component {
       })
   }
 
+  setLocationKeyword(val) {
+    this.loadByLocation(val)
+  }
+
   async componentDidMount() {
-    await this.loadByLocation()
+    await this.loadByLocation('jakarta')
   }
 
   render() {
@@ -68,7 +73,11 @@ class App extends React.Component {
       <div className="app">
         <div className="container">
           <Header data={current} />
-          <Content data={daily} />
+          <Content
+            data={daily}
+            locationKeyword={this.locationKeyword}
+            passToParent={this.setLocationKeyword}
+          />
         </div>
       </div>
     )

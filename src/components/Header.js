@@ -23,14 +23,14 @@ export default function Header(props) {
       </div>
       <div className="header-child">
         <div className="uppercase">{data.locationName}</div>
-          <br /> <br />
-        <i
-          className="fas fa-moon"
-          style={{
-            fontSize: '50px',
-            textShadow: '0px 1px 1px #ddd, 0 10px 20px #ccc',
-            color: 'yellow',
-          }}
+          <br />
+          <img
+            src={`http://openweathermap.org/img/w/${data.icon}.png`}
+            width="100"
+            height="100"
+            style={{
+              filter: 'drop-shadow(3px 3px 0.50rem white)'
+            }}
         />
       </div>
     </div>
