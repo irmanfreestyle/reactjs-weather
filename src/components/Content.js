@@ -37,9 +37,7 @@ export default class Content extends React.Component {
     return (
       <div>
         <div className="content-container">
-          <div className="ig-feed">
-            <h4>Instagram Feed</h4>
-          </div>
+          
 
           <div className="days">
             {days}

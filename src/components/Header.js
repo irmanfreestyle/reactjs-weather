@@ -2,8 +2,28 @@ import React from 'react';
 
 export default function Header(props) {
   let data = props.data;
+  let night = require('../img/city.jpg');
+  let afternoon = require('../img/afternoon.jpg');
+  let morning = require('../img/morning.jpg');
+
+  let background = () => {
+    let hour = new Date().getHours();
+    if(hour < 10) {
+      return morning
+    } else if(hour < 18) {
+      return afternoon
+    } else {
+      return night
+    }
+  }
+
   return (
-    <div className="header">
+    <div
+      className="header"
+      style={{
+        backgroundImage: `url(${background()})`
+      }}
+    >
       <div className="header-child">
         <div className="degree">
           {data.temp}

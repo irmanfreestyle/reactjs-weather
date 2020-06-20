@@ -27,8 +27,8 @@
   align-items: stretch;
   background: grey;
   padding: 30px 20px;
-  background-image: url('./img/city.jpg');
-  background-position: 0px -80px;
+  background-size: cover;
+  text-shadow: 1px 1px 8px grey;
 }
 .header-child {
   flex-grow: 1;
@@ -64,6 +64,7 @@
 
 .content-container {
   display: flex;
+  justify-content: center;
   padding: 30px 20px;
 }
 .ig-feed {
